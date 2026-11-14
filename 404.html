@@ -19,8 +19,8 @@
   </main>
   <script>
     (function () {
-      // Recalcula o href relativo pela profundidade da URL após /claude-sdd/.
-      var caminho = location.pathname, marca = '/claude-sdd/', i = caminho.indexOf(marca);
+      // Recalcula o href relativo pela profundidade da URL após /kiro-sdd/ (sem diferenciar maiúsculas).
+      var caminho = location.pathname, marca = '/kiro-sdd/', i = caminho.toLowerCase().indexOf(marca);
       if (i < 0) return;
       var resto = caminho.slice(i + marca.length), partes = resto.split('/');
       var profundidade = Math.max(partes.length - 1, 0);
