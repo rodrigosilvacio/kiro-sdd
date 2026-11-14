@@ -2,7 +2,7 @@
 
 Curso gratuito, em português, sobre Spec-Driven Development (SDD) e sete ferramentas que aplicam essa abordagem. O site é estático e roda no GitHub Pages, sem servidor nem banco de dados.
 
-**Site publicado:** https://rodrigosilvacio.github.io/Kiro-sdd/
+**Site publicado:** https://rodrigosilvacio.github.io/kiro-sdd/
 
 ## Conteúdo
 
