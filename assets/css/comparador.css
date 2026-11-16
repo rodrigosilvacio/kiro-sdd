@@ -91,6 +91,7 @@
   border-radius: var(--raio);
 }
 .comparador-recomendacao {
+  margin-top: var(--espaco-3);
   padding: var(--espaco-3) var(--espaco-4);
   border-left: 6px solid var(--cor-destaque);
   background: var(--cor-superficie);

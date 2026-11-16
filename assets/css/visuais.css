@@ -97,32 +97,7 @@
 .linha-tempo strong { display: block; }
 .linha-tempo code { overflow-wrap: anywhere; }
 
-@media (min-width: 768px) {
-  .linha-tempo {
-    display: flex;
-    gap: var(--espaco-4);
-    padding: var(--espaco-6) 0 0;
-    overflow-x: auto;
-  }
-  .linha-tempo::before {
-    top: 0.9rem;
-    bottom: auto;
-    left: 0;
-    right: 0;
-    width: auto;
-    height: 3px;
-  }
-  .linha-tempo > li {
-    flex: 1 1 10rem;
-    min-width: 10rem;
-    margin: 0;
-  }
-  .linha-tempo > li::before {
-    top: calc(-1 * var(--espaco-6));
-    left: var(--espaco-3);
-  }
-}
-
+/* Na coluna de leitura a linha do tempo fica sempre vertical: horizontal, cada etapa ficava estreita demais. */
 /* ---------- Stepper ---------- */
 .stepper {
   margin: var(--espaco-5) 0;
@@ -176,8 +151,6 @@
   padding: var(--espaco-1) var(--espaco-3);
   font-size: 0.8125rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
   color: var(--cor-texto);
   background: var(--cor-fundo);
   border: 2px dashed var(--cor-borda);
@@ -335,6 +308,153 @@
   cursor: not-allowed;
 }
 
+/* Bloco de conclusão da lição: fica logo antes da navegação, separado do texto. */
+.concluir {
+  padding: var(--espaco-4) var(--espaco-5);
+  background: var(--cor-superficie);
+  border-radius: var(--raio);
+}
+/* ---------- Checklist do exercício ---------- */
+.checklist { margin: var(--espaco-4) 0 0; padding: 0; list-style: none; }
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espaco-3);
+  margin: 0;
+  padding: var(--espaco-3) 0;
+  border-bottom: 1px solid var(--cor-borda);
+}
+.checklist input[type="checkbox"] {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0.1rem 0 0;
+  accent-color: var(--cor-destaque);
+}
+.checklist label { font-weight: 400; }
+.checklist li:has(input:checked) label { color: var(--cor-texto-suave); text-decoration: line-through; }
+.checklist-progresso { margin: var(--espaco-3) 0 0; font-weight: 700; }
+.checklist-selo {
+  display: inline-block;
+  margin: 0;
+  padding: var(--espaco-1) var(--espaco-3);
+  font-weight: 700;
+  color: var(--cor-texto-marcador);
+  background: var(--cor-marcador);
+  border-radius: var(--raio);
+}
+.checklist-selo[hidden] { display: none; }
+.checklist-selo::before { content: "\2713\00a0"; }
+/* ---------- Quiz ---------- */
+.quiz-questao {
+  margin: 0 0 var(--espaco-6);
+  padding: 0 0 0 var(--espaco-4);
+  border: 0;
+  border-left: 4px solid var(--cor-borda);
+}
+.quiz-questao[aria-invalid="true"] { border-left-color: #9b1c31; border-left-style: dashed; }
+.quiz-questao legend {
+  float: left;
+  width: 100%;
+  margin-bottom: var(--espaco-3);
+  padding: 0;
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-h3);
+  font-weight: 700;
+  line-height: 1.3;
+}
+.quiz-questao legend + * { clear: both; }
+.quiz-opcao { margin: 0 0 var(--espaco-2); }
+.quiz-opcao label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espaco-3);
+  min-height: 2.75rem;
+  padding: var(--espaco-2) var(--espaco-3);
+  font-weight: 400;
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  cursor: pointer;
+}
+.quiz-opcao label:hover { background: var(--cor-superficie); }
+.quiz-opcao label:has(input:checked) { font-weight: 700; border: 2px solid var(--cor-destaque); padding: calc(var(--espaco-2) - 1px) calc(var(--espaco-3) - 1px); }
+.quiz-opcao input { flex: none; width: 1.25rem; height: 1.25rem; margin: 0.2rem 0 0; accent-color: var(--cor-destaque); }
+.quiz-feedback {
+  margin: var(--espaco-3) 0 0;
+  padding: var(--espaco-2) var(--espaco-3);
+  background: var(--cor-superficie);
+  border-left: 6px solid var(--cor-borda);
+}
+.quiz-feedback[hidden] { display: none; }
+.quiz-feedback[data-correta="true"] { border-left-color: var(--cor-destaque); }
+.quiz-feedback[data-correta="false"] { border-left-color: #9b1c31; border-left-style: dashed; }
+.quiz-status:not([hidden]),
+.quiz-resultado:not(:empty),
+.quiz-alerta:not(:empty) {
+  margin: var(--espaco-4) 0;
+  padding: var(--espaco-3) var(--espaco-4);
+  font-weight: 700;
+  background: var(--cor-superficie);
+  border-left: 6px solid var(--cor-marcador);
+  border-radius: 0 var(--raio) var(--raio) 0;
+}
+.quiz-alerta:not(:empty) { border-left-color: #9b1c31; }
+.quiz-status[hidden] { display: none; }
+/* ---------- Progresso do curso ---------- */
+progress {
+  display: block;
+  width: 100%;
+  max-width: 28rem;
+  height: 0.75rem;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  border-radius: 999px;
+  background: var(--cor-superficie);
+  box-shadow: inset 0 0 0 1px var(--cor-borda);
+  overflow: hidden;
+}
+progress::-webkit-progress-bar { background: var(--cor-superficie); }
+progress::-webkit-progress-value { background: var(--cor-destaque); }
+progress::-moz-progress-bar { background: var(--cor-destaque); }
+/* ---------- Diálogo de confirmação ---------- */
+dialog {
+  max-width: 28rem;
+  padding: var(--espaco-5);
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+  border: 2px solid var(--cor-texto);
+  border-radius: var(--raio);
+}
+dialog::backdrop { background: rgba(18, 48, 58, 0.6); }
+dialog h2 { margin-top: 0; }
+dialog button { margin-right: var(--espaco-2); }
+/* ---------- Certificado na tela ---------- */
+.certificado-percentual { font-weight: 700; }
+.certificado-pendencias h3 { margin-top: var(--espaco-4); }
+.certificado-erro { padding: var(--espaco-2) var(--espaco-3); font-weight: 600; border-left: 6px solid #9b1c31; background: var(--cor-superficie); }
+.certificado-erro[hidden] { display: none; }
+.certificado-controles { display: flex; flex-wrap: wrap; gap: var(--espaco-3); margin-top: var(--espaco-4); }
+.certificado-controles[hidden], .certificado[hidden] { display: none; }
+.certificado {
+  max-width: 40rem;
+  margin: var(--espaco-5) 0 0;
+  padding: var(--espaco-7) var(--espaco-5);
+  text-align: center;
+  background: var(--cor-fundo);
+  border: 6px double var(--cor-tinta);
+}
+.certificado-titulo { margin: 0 0 var(--espaco-4); font-size: var(--texto-h2); }
+.certificado-nome {
+  margin: var(--espaco-3) 0;
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-h1);
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+.certificado-declaracao { margin-top: var(--espaco-5); font-size: var(--texto-pequeno); color: var(--cor-texto-suave); }
 /* ---------- Movimento ---------- */
 @media (prefers-reduced-motion: reduce) {
   .stepper-controles button,

@@ -36,56 +36,62 @@
     </nav>
   </header>
 
-  <main id="conteudo" class="container">
-    <h1>Curso de Spec-Driven Development (SDD)</h1>
-    <p>Aprenda a escrever especificações antes do código e a conduzir agentes de IA com elas. O curso apresenta os fundamentos e ensina, passo a passo, sete ferramentas de SDD, com exercícios, quizzes, um comparador e um certificado de participação autodeclarado.</p>
-    <p>Carga horária estimada: <strong>24 horas</strong>.</p>
-
-    <p><a href="modulos/01-fundamentos/01-o-que-e-sdd.html" data-licao="licao:fundamentos/o-que-e-sdd">Começar pela primeira lição</a></p>
-
-    <section class="visual" aria-labelledby="progresso-titulo" data-componente="progresso-inicio" hidden>
+  <main id="conteudo" class="container largo">
+    <div class="hero">
+      <div class="hero-texto">
+        <h1>Curso de Spec-Driven Development (SDD)</h1>
+        <p class="hero-lead">Aprenda a escrever a especificação antes do código e a conduzir agentes de IA com ela. O curso começa pelos fundamentos e ensina, passo a passo, sete ferramentas de SDD, com exercícios, quizzes, um comparador e um certificado de participação autodeclarado.</p>
+        <p>Carga horária estimada: <strong>24 horas</strong>.</p>
+        <p><a class="botao-link" href="modulos/01-fundamentos/01-o-que-e-sdd.html" data-licao="licao:fundamentos/o-que-e-sdd">Começar pela primeira lição</a></p>
+      </div>
+      <div class="amostra" aria-hidden="true">
+        <p class="amostra-arquivo">tasks.md</p>
+        <pre><code>- [x] Escrever os requisitos
+- [x] Desenhar a solução
+- [ ] Implementar a tarefa 1
+- [ ] Implementar a tarefa 2
+- [ ] Revisar com a spec</code></pre>
+      </div>
+    </div>
+    <section class="visual progresso-inicio" aria-labelledby="progresso-titulo" data-componente="progresso-inicio" hidden>
       <h2 id="progresso-titulo">Seu progresso</h2>
       <p>Progresso do curso: <strong data-campo="percentual">0%</strong></p>
       <progress max="100" value="0" aria-label="Progresso do curso">0%</progress>
-      <p><a data-campo="continuar" href="modulos/01-fundamentos/index.html" hidden>Continuar</a></p>
+      <p><a class="botao-link" data-campo="continuar" href="modulos/01-fundamentos/index.html" hidden>Continuar</a></p>
     </section>
-
     <section aria-labelledby="modulos-titulo">
       <h2 id="modulos-titulo">Módulos</h2>
-      <ol>
+      <ol class="catalogo">
         <li><a href="modulos/01-fundamentos/index.html">Fundamentos de SDD</a></li>
-        <li><a href="modulos/02-openspec/index.html">OpenSpec</a></li>
-        <li><a href="modulos/03-spec-kit/index.html">GitHub Spec Kit</a></li>
-        <li><a href="modulos/04-bmad/index.html">BMAD Method</a></li>
-        <li><a href="modulos/05-kiro/index.html">AWS Kiro</a></li>
-        <li><a href="modulos/06-gsd/index.html">GSD</a></li>
-        <li><a href="modulos/07-spec-kitty/index.html">Spec Kitty</a></li>
-        <li><a href="modulos/08-specweave/index.html">SpecWeave</a></li>
+        <li style="--cor-modulo:#0b4f9c"><a href="modulos/02-openspec/index.html">OpenSpec</a></li>
+        <li style="--cor-modulo:#1f5f3a"><a href="modulos/03-spec-kit/index.html">GitHub Spec Kit</a></li>
+        <li style="--cor-modulo:#7a3e00"><a href="modulos/04-bmad/index.html">BMAD Method</a></li>
+        <li style="--cor-modulo:#5b3b9a"><a href="modulos/05-kiro/index.html">AWS Kiro</a></li>
+        <li style="--cor-modulo:#9b1c31"><a href="modulos/06-gsd/index.html">GSD</a></li>
+        <li style="--cor-modulo:#0b6e4f"><a href="modulos/07-spec-kitty/index.html">Spec Kitty</a></li>
+        <li style="--cor-modulo:#8a4b00"><a href="modulos/08-specweave/index.html">SpecWeave</a></li>
         <li><a href="modulos/09-complementares/index.html">Ferramentas complementares</a></li>
       </ol>
     </section>
-
     <section aria-labelledby="ferramentas-titulo">
       <h2 id="ferramentas-titulo">Ferramentas cobertas</h2>
-      <ul>
-        <li>OpenSpec</li>
-        <li>GitHub Spec Kit</li>
-        <li>BMAD Method</li>
-        <li>AWS Kiro</li>
-        <li>GSD</li>
-        <li>Spec Kitty</li>
-        <li>SpecWeave</li>
+      <ul class="ferramentas-lista">
+        <li style="--cor-modulo:#0b4f9c">OpenSpec</li>
+        <li style="--cor-modulo:#1f5f3a">GitHub Spec Kit</li>
+        <li style="--cor-modulo:#7a3e00">BMAD Method</li>
+        <li style="--cor-modulo:#5b3b9a">AWS Kiro</li>
+        <li style="--cor-modulo:#9b1c31">GSD</li>
+        <li style="--cor-modulo:#0b6e4f">Spec Kitty</li>
+        <li style="--cor-modulo:#8a4b00">SpecWeave</li>
       </ul>
     </section>
-
     <section aria-labelledby="atalhos-titulo">
       <h2 id="atalhos-titulo">Atalhos</h2>
-      <ul>
+      <ul class="atalhos">
         <li><a href="comparador.html">Comparador de ferramentas</a></li>
         <li><a href="certificado.html">Certificado de participação</a></li>
       </ul>
     </section>
-
     <section aria-labelledby="dados-titulo">
       <h2 id="dados-titulo">Seus dados</h2>
       <p>O progresso fica salvo apenas neste navegador, sem conta e sem envio para servidores.</p>

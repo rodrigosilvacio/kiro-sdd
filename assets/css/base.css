@@ -1,29 +1,82 @@
 *, *::before, *::after { box-sizing: border-box; }
-
 html { -webkit-text-size-adjust: 100%; }
-
 body {
   margin: 0;
   font-family: var(--fonte-texto);
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--cor-texto);
   background: var(--cor-fundo);
   overflow-wrap: break-word;
 }
-
 img, svg, video, canvas { max-width: 100%; height: auto; }
-
-a { color: var(--cor-link); }
-
+a { color: var(--cor-link); text-underline-offset: 0.2em; }
+/* Títulos em serifa: carregam a personalidade do curso. */
+h1, h2, h3 {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--cor-texto);
+  text-wrap: balance;
+}
+h1 { margin: 0 0 var(--espaco-4); font-size: var(--texto-h1); letter-spacing: -0.015em; }
+h2 { margin: var(--espaco-7) 0 var(--espaco-3); font-size: var(--texto-h2); }
+h3 { margin: var(--espaco-5) 0 var(--espaco-2); font-size: var(--texto-h3); }
+p { margin: 0 0 var(--espaco-4); }
+ul, ol { padding-left: var(--espaco-5); }
+li { margin-bottom: var(--espaco-1); }
+strong { font-weight: 700; }
 pre, code { font-family: var(--fonte-codigo); }
-pre { overflow-x: auto; max-width: 100%; padding: var(--espaco-3); background: var(--cor-superficie); }
-
+code {
+  padding: 0.1em 0.35em;
+  font-size: 0.9em;
+  background: var(--cor-superficie);
+  border-radius: 0.25rem;
+}
+pre {
+  overflow-x: auto;
+  max-width: 100%;
+  padding: var(--espaco-4);
+  line-height: 1.5;
+  background: var(--cor-superficie);
+  border-left: 4px solid var(--cor-borda);
+  border-radius: 0 var(--raio) var(--raio) 0;
+}
+pre code { padding: 0; background: none; font-size: 0.9375rem; }
+/* Botões e campos de formulário comuns. Especificidade zero: componentes com classe própria vencem. */
+:where(main button, dialog button) {
+  min-height: 2.75rem;
+  padding: var(--espaco-2) var(--espaco-5);
+  font: inherit;
+  font-weight: 600;
+  color: var(--cor-texto-destaque);
+  background: var(--cor-destaque);
+  border: 2px solid var(--cor-destaque);
+  border-radius: var(--raio);
+  cursor: pointer;
+}
+:where(main button:disabled, dialog button:disabled) {
+  color: var(--cor-texto-suave);
+  background: var(--cor-superficie);
+  border: 2px dashed var(--cor-borda);
+  cursor: not-allowed;
+}
+:where(main input[type="text"]) {
+  width: 100%;
+  max-width: 28rem;
+  min-height: 2.75rem;
+  padding: var(--espaco-2) var(--espaco-3);
+  font: inherit;
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio);
+}
+:where(main label) { font-weight: 600; }
 :focus-visible {
   outline: 3px solid var(--cor-foco);
   outline-offset: 2px;
 }
-
 .visualmente-oculto {
   position: absolute;
   width: 1px;
@@ -35,7 +88,6 @@ pre { overflow-x: auto; max-width: 100%; padding: var(--espaco-3); background: v
   white-space: nowrap;
   border: 0;
 }
-
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation: none !important;
